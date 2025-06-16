@@ -55,3 +55,19 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// Responsive Pixel Navigation JavaScript
+
+// Hamburger toggle for mobile nav
+const navToggle = document.querySelector('.nav-toggle');
+const pixelNav = document.querySelector('.pixel-nav');
+navToggle.addEventListener('click', () => {
+  pixelNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', pixelNav.classList.contains('open'));
+});
+// Close nav when a link is clicked (for mobile UX)
+pixelNav.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    pixelNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  });
+});
